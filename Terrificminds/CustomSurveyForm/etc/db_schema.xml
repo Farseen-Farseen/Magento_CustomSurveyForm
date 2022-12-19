@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customsurvey_table" resource="default" engine="innodb" comment="Feedback Form">
+        <column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="ID"/>
+        <column xsi:type="varchar" name="name" nullable="false" length="25" comment="Name"/>
+        <column xsi:type="varchar" name="email" nullable="false" length="25" comment="Email"/>
+        <column xsi:type="varchar" name="qn1" nullable="false" length="255" comment="qn1"/>
+        <column xsi:type="varchar" name="qn2" nullable="false" length="255" comment="qn2"/>
+        <column xsi:type="varchar" name="qn3" nullable="false" length="255" comment="qn3"/>
+        <column xsi:type="varchar" name="qn4" nullable="false" length="255" comment="qn4"/>
+        <column xsi:type="varchar" name="qn5" nullable="false" length="255" comment="qn5"/>
+        <column xsi:type="text" name="image" nullable="true"  comment="image Upload"/>
+        <column xsi:type="datetime" name="created_at" nullable="true" default="CURRENT_TIMESTAMP"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>
