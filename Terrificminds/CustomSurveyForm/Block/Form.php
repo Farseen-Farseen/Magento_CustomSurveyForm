@@ -8,9 +8,6 @@ use Magento\Eav\Model\Config;
 use Magento\Customer\Model\Customer;
 use Magento\Backend\Block\Template\Context;
 
-/**
- * Form class to get user detail and bottle options
- */
 class Form extends Template
 {
     /**
@@ -62,7 +59,6 @@ class Form extends Template
         parent::__construct($context, $data);
     }
     /**
-     * GetBottleOption function
      *
      * @return array
      */
