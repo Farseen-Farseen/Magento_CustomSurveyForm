@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+/**
+ * Creating a table
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="custom_form_table" resource="default" engine="innodb" comment="custom form table">
+      <column xsi:type="int" name="id" padding="7" unsigned="true" 
+              nullable="false" identity="true" comment="custom_id" />
+      <column xsi:type="varchar" name="customer_name" nullable="false" length="20" comment="customer_name" />
+      <column xsi:type="varchar" name="email" nullable="false" length="225" comment="Email" />
+      <column xsi:type="varchar" name="qn1" nullable="false" length="50" comment="Question1"/>
+      <column xsi:type="varchar" name="qn2" nullable="false" length="50" comment="Question2"/>
+      <column xsi:type="varchar" name="qn3" nullable="false" length="50" comment="Question3"/>
+      <column xsi:type="varchar" name="qn4" nullable="false" length="50" comment="Question4"/>
+      <column xsi:type="timestamp" name="created_datetime" nullable="false"
+              default="CURRENT_TIMESTAMP" on_update="false" comment="Created Datetime"/>
+      <column xsi:type="timestamp" name="updated_datetime" nullable="false"
+              default="CURRENT_TIMESTAMP" on_update="true" comment="Updated Datetime"/>
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+   </table>
+</schema>
