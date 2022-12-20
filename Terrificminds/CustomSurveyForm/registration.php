@@ -4,4 +4,3 @@
 	'Terrificminds_CustomSurveyForm',
 	__DIR__
 );
-

@@ -1,15 +1,9 @@
 <?php
 
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- *
- * Created By : Rohan Hapani
- */
 
 namespace Terrificminds\CustomSurveyForm\Model;
 
-use Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\CollectionFactory;
+use Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm\CollectionFactory;
 
 class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 {
@@ -17,7 +11,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * To connect to db
      * @var array
      */
-    protected $blogCollectionFactory;
+     
+    protected $formCollectionFactory;
+
     /**
      * @var array
      */
@@ -29,7 +25,7 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * @param string $name
      * @param string $primaryFieldName
      * @param string $requestFieldName
-     * @param CollectionFactory $blogCollectionFactory
+     * @param CollectionFactory $formCollectionFactory
      * @param array $meta
      * @param array $data
      */
@@ -37,11 +33,11 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
         $name,
         $primaryFieldName,
         $requestFieldName,
-        CollectionFactory $blogCollectionFactory,
+        CollectionFactory $formCollectionFactory,
         array $meta = [],
         array $data = []
     ) {
-        $this->collection = $blogCollectionFactory->create();
+        $this->collection = $formCollectionFactory->create();
         parent::__construct($name, $primaryFieldName, $requestFieldName, $meta, $data);
     }
 
@@ -59,8 +55,8 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
 
         $items = $this->collection->getItems();
 
-        foreach ($items as $blog) {
-            $this->loadedData[$blog->getId()] = $blog->getData();
+        foreach ($items as $form) {
+            $this->loadedData[$form->getId()] = $form->getData();
         }
         return $this->loadedData;
     }
