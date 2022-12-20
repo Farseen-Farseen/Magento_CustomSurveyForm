@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Terrificminds\CustomSurveyForm\Model;
 
 use Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm\CollectionFactory;
@@ -10,7 +11,9 @@ class DataProvider extends \Magento\Ui\DataProvider\AbstractDataProvider
      * To connect to db
      * @var array
      */
+     
     protected $formCollectionFactory;
+
     /**
      * @var array
      */

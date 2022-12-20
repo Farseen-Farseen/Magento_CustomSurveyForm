@@ -1,6 +1,8 @@
 <?xml version = "1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Terrificminds\CustomSurveyForm\Api\Data\CustomInterface"
+                type="Terrificminds\CustomSurveyForm\Model\SurveyForm" />
     <preference for="Terrificminds\CustomSurveyForm\Api\Data\FormInterface"
                 type="Terrificminds\CustomSurveyForm\Model\CustomSurveyForm" />
     <preference for="Terrificminds\CustomSurveyForm\Api\FormRepositoryInterface"
@@ -13,7 +15,13 @@
                 <item name="custom_survey_form_data_source" xsi:type="string">CustomSurveyCollection</item>
             </argument>
         </arguments>
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customsurveyform_listing_data_source" xsi:type="string">SurveyFormCollection</item>
+            </argument>
+        </arguments>
     </type>
+     
     <virtualType name="CustomSurveyCollection"
                  type="Terrificminds\CustomSurveyForm\Ui\DataProvider\SurveyForm\Collection">
         <arguments>
@@ -21,4 +29,39 @@
             <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm</argument>
         </arguments>
     </virtualType>
+    
+    <virtualType name="SurveyFormCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customsurvey_table</argument>
+            <!-- <argument name="eventPrefix" xsi:type="string">terrificminds_Surveyform_collection</argument>
+            <argument name="eventObject" xsi:type="string">SurveyForm_collection</argument> -->
+            <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Terrificminds\CustomSurveyForm\CustomformImageUpload" type="Terrificminds\CustomSurveyForm\Model\ImageUploader">
+    <arguments>
+        <argument name="baseTmpPath" xsi:type="string">Terrificminds/CustomSurveyForm/tmp</argument>
+        <argument name="basePath" xsi:type="string">Terrificminds/CustomSurveyForm</argument>
+        <argument name="allowedExtensions" xsi:type="array">
+            <item name="jpg" xsi:type="string">jpg</item>
+            <item name="pdf" xsi:type="string">pdf</item>
+        </argument>
+    </arguments>
+    </virtualType>
+
+    <type name="terrificminds\CustomSurveyForm\Controller\Adminhtml\Customform\FileUploader\save">
+    <arguments>
+        <argument name="imageUplaoder" xsi:type="object">Terrificminds\CustomSurveyForm\CustomformimageUplaod </argument>
+    </arguments>
+    </type>
+
+    
+    <!-- <virtualType name="CustomSurveyFormGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="customsurvey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
+        </arguments>
+    </virtualType> -->
+    
 </config>
+
