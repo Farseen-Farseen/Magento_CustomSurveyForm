@@ -1,0 +1,119 @@
+<?php
+    $user = $block->getCurrentUser();
+    $log = $block->getuser();
+    $priorPath = $block->getPath();
+
+    if($priorPath == "https://app.exampleproject.test/checkout/onepage/success/"){
+?>
+<head>
+    <title>Terrificminds - Custom Survey Form</title>
+</head>
+
+
+
+<form action="Index/Save" method="POST" enctype="multipart/form-data">
+    <fieldset class="fieldset">
+        <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Detail')) ?></span></legend>
+        <fieldset class="fieldset row">
+            <div class="fields col-md-6">
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $block->escapeHtmlAttr(__('Name'))?></span>
+                    </label>
+                    <div class="control">
+                        <input name="name" id="name" title="name" 
+                               value="<?=($log == 'true') ?  $escaper->escapeHtml($user['name']) : " "?>"
+                               class="input-text required-entry" type="text"  data-validate="{required:true}"  />
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $block->escapeHtmlAttr(__('Email')) ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="email" id="email" title="Email"
+                               value="<?= ($log == 'true') ?  $escaper->escapeHtml($user['email']) : " "?>"
+                               class="input-text" type="email"
+                               data-validate="{required:true, 'validate-email':true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn1'); ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="qn1" id="qn1" title="Question1"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn2'); ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="qn2" id="qn2" title="Question2"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn3'); ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="qn3" id="qn3" title="Question3"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn4'); ?></span>
+                    </label>
+                    <div class="control">
+                            <textarea name="qn4" id="qn4" title="Question4"
+                                      value="" class="input-text" type="text" data-validate="{required:true}">
+                            </textarea>
+                        </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn5'); ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="qn5" id="qn5" title="Question5"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><strong><?= $block->escapeHtmlAttr(__('Choose Image:')) ?><strong></span>
+                    </label><br><br>
+                    <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text required" data-validate="{required:true}">
+                    <?= $block->getChildHtml('form.additional.info');  ?>
+                </div>
+            </div>
+            
+        </fieldset>
+    </fieldset>
+    <div class="actions-toolbar">
+        <div class="primary">
+            <button type="submit" class="action submit primary" title="Save">
+                <span><?= $block->escapeHtmlAttr(__('Save')) ?></span>
+            </button>
+        </div>
+    </div>
+</form>
+<?php
+    }
+    else{
+        echo "Sorry! You have no access to this page";
+    }
+?>

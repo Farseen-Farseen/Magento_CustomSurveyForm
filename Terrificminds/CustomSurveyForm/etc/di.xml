@@ -9,7 +9,7 @@
                 type="Terrificminds\CustomSurveyForm\Model\FormRepository" />
     <preference for="Terrificminds\CustomSurveyForm\Api\Data\FormSearchResultInterface"
                 type="Terrificminds\CustomSurveyForm\Model\FormSearchList"/>
-                
+
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -34,8 +34,6 @@
     <virtualType name="SurveyFormCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">custom_survey_table</argument>
-            <!-- <argument name="eventPrefix" xsi:type="string">terrificminds_Surveyform_collection</argument>
-            <argument name="eventObject" xsi:type="string">SurveyForm_collection</argument> -->
             <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm</argument>
         </arguments>
     </virtualType>
@@ -56,13 +54,6 @@
         <argument name="imageUplaoder" xsi:type="object">Terrificminds\CustomSurveyForm\CustomformimageUplaod </argument>
     </arguments>
     </type>
-
-    
-    <!-- <virtualType name="CustomSurveyFormGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
-        <arguments>
-            <argument name="customsurvey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
-        </arguments>
-    </virtualType> -->
     
 </config>
 

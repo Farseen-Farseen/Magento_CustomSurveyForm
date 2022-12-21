@@ -151,14 +151,14 @@
                 <label translate="true">Question 5</label>
             </settings>
         </column>
-       <column name="image" component="Magento_Ui/js/grid/columns/thumbnail" class="Terrificminds\CustomSurveyForm\Ui\Component\Listing\Columns\Thumbnail">
+       <!-- <column name="image" component="Magento_Ui/js/grid/columns/thumbnail" class="Terrificminds\CustomSurveyForm\Ui\Component\Listing\Columns\Thumbnail">
           <settings>
               <hasPreview>0</hasPreview>
               <addField>false</addField>
               <label translate="true">Thumbnail</label>
               <sortable>false</sortable>
           </settings>
-        </column>
+        </column> -->
         <column name="created_at">
             <settings>
                 <filter>datetime</filter>
