@@ -111,6 +111,54 @@ class CustomSurveyForm extends AbstractModel implements FormInterface
     }
 
     /**
+     * @inheritDoc
+     */
+    public function getQuestion4()
+    {
+        return parent::getData(self::QUESTION4);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setQuestion4($qn4)
+    {
+        return $this->setData(self::QUESTION4, $qn4);
+    }
+
+      /**
+     * @inheritDoc
+     */
+    public function getQuestion5()
+    {
+        return parent::getData(self::QUESTION5);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setQuestion5($qn5)
+    {
+        return $this->setData(self::QUESTION5, $qn5);
+    }
+
+      /**
+     * @inheritDoc
+     */
+    public function getImage()
+    {
+        return parent::getData(self::Image);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function setImage($path)
+    {
+        return $this->setData(self::IMAGE, $path);
+    }
+
+    /**
      * Construct function
      */
     protected function _construct()

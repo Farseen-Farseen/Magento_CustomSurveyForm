@@ -24,7 +24,8 @@ interface FormInterface
     public const QUESTION2 = 'qn2';
     public const QUESTION3 = 'qn3';
     public const QUESTION4 = 'qn4';
-    public const Image = 'image';
+    public const QUESTION5 = 'qn5';
+    public const IMAGE = 'image';
     public const ATTRIBUTES = [
         self::ID,
         self::NAME,
@@ -33,6 +34,8 @@ interface FormInterface
         self::QUESTION2,
         self::QUESTION3,
         self::QUESTION4,
+        self::QUESTION5,
+        self::IMAGE
     ];
     /**
      *  Id
@@ -121,6 +124,50 @@ interface FormInterface
        * @return $this
        */
       public function setQuestion3($qn3);
+
+      /**
+      * Question4
+      *
+      * @return string|null
+      */
+      public function getQuestion4();
+
+      /**
+       * Set Question4
+       *
+       * @param string $qn4
+       * @return $this
+       */
+      public function setQuestion4($qn4);
+
+      /**
+      * Question5
+      *
+      * @return string|null
+      */
+      public function getQuestion5();
+
+      /**
+       * Set Question5
+       *
+       * @param string $qn5
+       * @return $this
+       */
+      public function setQuestion5($qn5);
+
+      /**
+      * Image
+      *
+      * @return string|null
+      */
+      public function getImage();
+
+      /**
+       * Set Image
+       *
+       * 
+       */
+      public function setImage($path);
 
 
 }

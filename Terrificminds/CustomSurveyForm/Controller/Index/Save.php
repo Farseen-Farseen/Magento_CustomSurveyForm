@@ -76,6 +76,9 @@ class Save extends Action
         $setProduct->setQuestion1($params['qn1']);
         $setProduct->setQuestion2($params['qn2']);
         $setProduct->setQuestion3($params['qn3']);
+        $setProduct->setQuestion4($params['qn4']);
+        $setProduct->setQuestion5($params['qn5']);
+        $setProduct->setImage($uploadedFile);
         
 
         try {
@@ -105,6 +108,7 @@ class Save extends Action
  
  if ($file && $fileName) {
  $target = $this->mediaDirectory->getAbsolutePath($yourFolderName); 
+
  
  /** @var $uploader \Magento\MediaStorage\Model\File\Uploader */
  $uploader = $this->fileUploader->create(['fileId' => $yourInputFileName]);
@@ -117,22 +121,29 @@ class Save extends Action
  
  // rename file name if already exists 
  $uploader->setAllowRenameFiles(true); 
+
+ $destFile = $target.'/'.$_FILES['upload_custom_file']['name'];
+
+ $filename = $uploader->getNewFileName($destFile);
+
  
+
  // upload file in the specified folder
- $result = $uploader->save($target);
+ $result = $uploader->save($target, $filename);
  
  //echo '<pre>'; print_r($result); exit;
- 
+ $path = $target . $filename;
+
+ return $path;
+
  if ($result['file']) {
  $this->messageManager->addSuccess(__('File has been successfully uploaded.')); 
  }
- 
  return $target . $uploader->getUploadedFileName();
  }
  } catch (\Exception $e) {
  $this->messageManager->addError($e->getMessage());
  }
- 
  return false;
  }
 }

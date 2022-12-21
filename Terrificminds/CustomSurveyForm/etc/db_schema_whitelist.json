@@ -1,0 +1,20 @@
+{
+    "custom_survey_table": {
+        "column": {
+            "id": true,
+            "customer_name": true,
+            "email": true,
+            "qn1": true,
+            "qn2": true,
+            "qn3": true,
+            "qn4": true,
+            "qn5": true,
+            "image": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

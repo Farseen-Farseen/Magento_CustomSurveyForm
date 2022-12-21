@@ -32,7 +32,7 @@
     
     <virtualType name="SurveyFormCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
-            <argument name="mainTable" xsi:type="string">customsurvey_table</argument>
+            <argument name="mainTable" xsi:type="string">custom_survey_table</argument>
             <!-- <argument name="eventPrefix" xsi:type="string">terrificminds_Surveyform_collection</argument>
             <argument name="eventObject" xsi:type="string">SurveyForm_collection</argument> -->
             <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm</argument>
@@ -59,7 +59,7 @@
     
     <!-- <virtualType name="CustomSurveyFormGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="customsurvey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
+            <argument name="custom_survey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
         </arguments>
     </virtualType> -->
     

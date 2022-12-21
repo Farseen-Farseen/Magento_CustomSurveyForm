@@ -2,9 +2,6 @@
 
     $user = $block->getCurrentUser();
     $log = $block->getuser();
-    // $arr = $block->getArticles();
-    // $len = count($arr);
-
 
 ?>
 <head>
@@ -39,7 +36,7 @@
 
                 <div class="field name required">
                     <label class="label" for="title">
-                        <span><?= $block->escapeHtmlAttr(__('How was your overall experience?')) ?></span>
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn1'); ?></span>
                     </label>
                     <div class="control">
                         <input name="qn1" id="qn1" title="Question1"
@@ -50,21 +47,43 @@
 
                 <div class="field name required">
                     <label class="label" for="title">
-                        <span><?= $block->escapeHtmlAttr(__('Any Suggestions?')) ?></span>
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn2'); ?></span>
                     </label>
                     <div class="control">
-                            <textarea name="qn2" id="qn2" title="Question2"
-                                      vlaue="" class="input-text" type="text" data-validate="{required:true}">
+                        <input name="qn2" id="qn2" title="Question2"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn3'); ?></span>
+                    </label>
+                    <div class="control">
+                        <input name="qn3" id="qn3" title="Question3"
+                               class="input-text" type="text"
+                               data-validate="{required:true}" required/>
+                    </div>
+                </div>
+
+                <div class="field name required">
+                    <label class="label" for="title">
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn4'); ?></span>
+                    </label>
+                    <div class="control">
+                            <textarea name="qn4" id="qn4" title="Question4"
+                                      value="" class="input-text" type="text" data-validate="{required:true}">
                             </textarea>
                         </div>
                 </div>
 
                 <div class="field name required">
                     <label class="label" for="title">
-                        <span><?= $block->escapeHtmlAttr(__('Will you recommend the website to others?')) ?></span>
+                        <span><?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('qn5'); ?></span>
                     </label>
                     <div class="control">
-                        <select name="qn3" id="qn3">
+                        <select name="qn5" id="qn5" title="Question5">
                             <option value="yes" >Yes</option>
                             <option value="no">No</option>
                         </select>
@@ -73,10 +92,9 @@
 
 
                 <label class="label" for="title">
-                        <span><?= $block->escapeHtmlAttr(__('Choose Image:')) ?></span>
-                    </label>
+                        <span><strong><?= $block->escapeHtmlAttr(__('Choose Image:')) ?><strong></span>
+                    </label><br><br>
                 <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text" data-validate="{required:true}">
-
                 <?= $block->getChildHtml('form.additional.info');  ?>
             </div>
             

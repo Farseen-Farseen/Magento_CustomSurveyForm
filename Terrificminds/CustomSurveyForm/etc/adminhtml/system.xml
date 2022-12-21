@@ -45,7 +45,7 @@
                     <can_be_empty>1</can_be_empty>
                </field>
 
-               <!-- <field id="qn6" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+               <!-- <field id="image" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
                     <label>Upload Image</label>
                     <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
                     <can_be_empty>1</can_be_empty>

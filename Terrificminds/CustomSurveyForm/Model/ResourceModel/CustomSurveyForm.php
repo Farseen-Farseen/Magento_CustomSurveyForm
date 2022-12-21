@@ -9,7 +9,7 @@ class CustomSurveyForm extends AbstractDb
     /**
      * table name
      */
-    protected const MAIN_TABLE = 'custom_form_table';
+    protected const MAIN_TABLE = 'custom_survey_table';
     /**
      * primary id
      */

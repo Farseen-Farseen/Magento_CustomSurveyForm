@@ -12,6 +12,6 @@ class View extends AbstractDb
      */
     protected function _construct()
     {
-        $this->_init('custom_form_table', 'id');
+        $this->_init('custom_survey_table', 'id');
     }
 }

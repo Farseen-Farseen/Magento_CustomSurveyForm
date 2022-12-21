@@ -11,6 +11,6 @@ class SurveyForm extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _construct()
     {       
-        $this->_init('customsurvey_table', 'id');
+        $this->_init('custom_survey_table', 'id');
     }
 }
