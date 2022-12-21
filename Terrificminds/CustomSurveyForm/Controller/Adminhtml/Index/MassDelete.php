@@ -1,33 +1,31 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- *
- * Created By : Rohan Hapani
- */
+
 namespace Terrificminds\CustomSurveyForm\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Ui\Component\MassAction\Filter;
-use RH\UiExample\Model\ResourceModel\Blog\CollectionFactory;
+use Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm\CollectionFactory;
 
+/**
+ * Class MassDelete
+ * to delete in mass action
+ */
 class MassDelete extends \Magento\Backend\App\Action
 {
-
-    /**
-     * @var Filter
-     */
-    protected $filter;
-
+     /**
+      * @var Filter
+      */
+    protected Filter $filter;
     /**
      * @var CollectionFactory
      */
-    protected $collectionFactory;
-
+    protected CollectionFactory $collectionFactory;
     /**
-     * @param Context           $context
-     * @param Filter            $filter
+     * Construct function
+     *
+     * @param Context $context
+     * @param Filter $filter
      * @param CollectionFactory $collectionFactory
      */
     public function __construct(
@@ -41,26 +39,30 @@ class MassDelete extends \Magento\Backend\App\Action
     }
 
     /**
-     * Execute action
+     * Execute function
      *
-     * @return \Magento\Backend\Model\View\Result\Redirect
-     * @throws \Magento\Framework\Exception\LocalizedException|\Exception
+     * @SuppressWarnings(PHPMD.CyclomaticComplexity)
+     * @SuppressWarnings(PHPMD.NPathComplexity)
      */
     public function execute()
     {
-
         $collection = $this->filter->getCollection($this->collectionFactory->create());
-
         $collectionSize = $collection->getSize();
-
         foreach ($collection as $item) {
             $item->delete();
         }
-
-        $this->messageManager->addSuccess(__('A total of %1 element(s) have been deleted.', $collectionSize));
-
-        /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
+        $this->messageManager->addSuccessMessage(__('Data is deleted .', $collectionSize));
+        /** @var Redirect $resultRedirect */
         $resultRedirect = $this->resultFactory->create(ResultFactory::TYPE_REDIRECT);
         return $resultRedirect->setPath('*/*/');
+    }
+    /**
+     * IsAllowed function
+     *
+     * @return bool
+     */
+    protected function _isAllowed()
+    {
+        return $this->_authorization->isAllowed('Terrificminds_CustomSurveyForm::home');
     }
 }

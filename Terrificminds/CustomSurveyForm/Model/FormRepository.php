@@ -100,7 +100,7 @@ class FormRepository implements FormRepositoryInterface
     public function delete(FormInterface $customForm)
     {
         try {
-            $this->FormResource->delete($customBForm);
+            $this->FormResource->delete($customForm);
         } catch (\Exception $exception) {
             throw new CouldNotDeleteException(
                 __('Could not delete the entry: %1', $exception->getMessage())

@@ -1,6 +1,6 @@
 <?php
 
-namespace Terrificminds\CustomSurveyForm\Ui\Component\Listing\Column;
+namespace Terrificminds\CustomSurveyForm\Ui\Component\Listing\Columns;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
@@ -16,6 +16,9 @@ class FormActions extends Column
      * @var UrlInterface
      */
     protected $urlBuilder;
+
+   
+
 
     /**
      *
@@ -47,22 +50,21 @@ class FormActions extends Column
         
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$item) {
-                if (isset($item['blog_id'])) {
+                if (isset($item['id'])) {
                     $item[$this->getData('name')] = [
                         'edit' => [
-                            'href' => $this->urlBuilder->getUrl(
-                                static::URL_EDIT_PATH,
+                            'href' => $this->urlBuilder->getUrl('customsurveyform/index/edit',
+                                
                                 [
-                                    'blog_id' => $item['blog_id'],
+                                    'id' => $item['id'],
                                 ]
                             ),
                             'label' => __('Edit'),
                         ],
                         'delete' => [
-                            'href' => $this->urlBuilder->getUrl(
-                                static::URL_DELETE_PATH,
+                            'href' => $this->urlBuilder->getUrl('customsurveyform/index/delete',
                                 [
-                                    'blog_id' => $item['blog_id'],
+                                    'id' => $item['id'],
                                 ]
                             ),
                             'label' => __('Delete'),

@@ -1,14 +1,15 @@
 <?xml version = "1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
-    <preference for="Terrificminds\CustomSurveyForm\Api\Data\CustomInterface"
-                type="Terrificminds\CustomSurveyForm\Model\SurveyForm" />
+    <preference for="Terrificminds\CustomSurveyForm\Api\Data\FormInterface"
+                type="Terrificminds\CustomSurveyForm\Model\CustomSurveyForm" />
     <preference for="Terrificminds\CustomSurveyForm\Api\Data\FormInterface"
                 type="Terrificminds\CustomSurveyForm\Model\CustomSurveyForm" />
     <preference for="Terrificminds\CustomSurveyForm\Api\FormRepositoryInterface"
                 type="Terrificminds\CustomSurveyForm\Model\FormRepository" />
     <preference for="Terrificminds\CustomSurveyForm\Api\Data\FormSearchResultInterface"
                 type="Terrificminds\CustomSurveyForm\Model\FormSearchList"/>
+                
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -25,7 +26,7 @@
     <virtualType name="CustomSurveyCollection"
                  type="Terrificminds\CustomSurveyForm\Ui\DataProvider\SurveyForm\Collection">
         <arguments>
-            <argument name="mainTable" xsi:type="string">custom_form_table</argument>
+            <argument name="mainTable" xsi:type="string">custom_survey_form_table</argument>
             <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm</argument>
         </arguments>
     </virtualType>
@@ -35,7 +36,7 @@
             <argument name="mainTable" xsi:type="string">custom_survey_table</argument>
             <!-- <argument name="eventPrefix" xsi:type="string">terrificminds_Surveyform_collection</argument>
             <argument name="eventObject" xsi:type="string">SurveyForm_collection</argument> -->
-            <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm</argument>
+            <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm</argument>
         </arguments>
     </virtualType>
 
@@ -59,7 +60,7 @@
     
     <!-- <virtualType name="CustomSurveyFormGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
         <arguments>
-            <argument name="custom_survey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
+            <argument name="customsurvey_table" xsi:type="object" shared="false">Terrificminds\CustomSurveyForm\Model\ResourceModel\SurveyForm\Collection</argument>
         </arguments>
     </virtualType> -->
     

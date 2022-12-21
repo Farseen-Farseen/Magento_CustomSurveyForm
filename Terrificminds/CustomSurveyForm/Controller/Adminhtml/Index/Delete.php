@@ -1,43 +1,44 @@
 <?php
+
 /**
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  *
  * Created By : Rohan Hapani
  */
+
 namespace Terrificminds\CustomSurveyForm\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
 use Magento\Backend\App\Action\Context;
+use Terrificminds\CustomSurveyForm\Api\FormRepositoryInterface;
 
 class Delete extends Action
 {
-
     /**
-     * @var \Terrificminds\CustomSurveyForm\Model\Blog
+     * @var FormRepositoryInterface
      */
-    protected $modelBlog;
-
+    protected FormRepositoryInterface $customRepository;
     /**
-     * @param Context                  $context
-     * @param \RH\UiExample\Model\Blog $blogFactory
+     * Construct function
+     *
+     * @param Context $context
+     * @param Terrificminds\CustomSurveyForm\Api\FormRepositoryInterface $customRepository
      */
     public function __construct(
         Context $context,
-        \Terrificminds\CustomSurveyFOrm\Model\Blog $blogFactory
+        FormRepositoryInterface $customRepository
     ) {
         parent::__construct($context);
-        $this->modelBlog = $model;
+        $this->customRepository = $customRepository;
     }
-
     /**
-     * {@inheritdoc}
+     * Isallowed function
      */
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Terrificminds_CustomSurveyForm::index_delete');
     }
-
     /**
      * Delete action
      *
@@ -50,17 +51,16 @@ class Delete extends Action
         $resultRedirect = $this->resultRedirectFactory->create();
         if ($id) {
             try {
-                $model = $this->modelBlog;
-                $model->load($id);
-                $model->delete();
-                $this->messageManager->addSuccess(__('Record deleted successfully.'));
+                $customInterface = $this->customRepository->getById($id);
+                $this->customRepository->delete($customInterface);
+                $this->messageManager->addSuccessMessage(__('Record deleted successfully.'));
                 return $resultRedirect->setPath('*/*/');
             } catch (\Exception $e) {
-                $this->messageManager->addError($e->getMessage());
+                $this->messageManager->addErrorMessage($e->getMessage());
                 return $resultRedirect->setPath('*/*/edit', ['id' => $id]);
             }
         }
-        $this->messageManager->addError(__('Record does not exist.'));
+        $this->messageManager->addErrorMessage(__('Record does not exist.'));
         return $resultRedirect->setPath('*/*/');
     }
 }

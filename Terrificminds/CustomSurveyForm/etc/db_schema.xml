@@ -17,7 +17,7 @@
         <column xsi:type="varchar" name="qn5" nullable="false" length="255" comment="qn5"/>
         <column xsi:type="text" name="image" nullable="true"  comment="image Upload"/>
         <column xsi:type="timestamp" name="created_at" nullable="true" default="CURRENT_TIMESTAMP" on_update="false" comment="Created Datetime"/>
-         <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated Datetime"/>
+        <column xsi:type="timestamp" name="updated_at" nullable="false" default="CURRENT_TIMESTAMP" on_update="true" comment="Updated Datetime"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
             <column name="id"/>
         </constraint>

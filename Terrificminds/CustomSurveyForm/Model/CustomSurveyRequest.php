@@ -5,16 +5,16 @@ namespace  Terrificminds\CustomSurveyForm\Model;
 use Magento\Framework\Model\AbstractModel;
 use Terrificminds\CustomSurveyForm\Api\Data\FormInterface;
 
-class CustomSurveyForm extends AbstractModel implements FormInterface
+class CustomSurveyRequest extends AbstractModel implements FormInterface
 {
     /**
      * @var string
      */
-    protected const CACHE_TAG = 'customer_survey_form';
+    protected const CACHE_TAG = 'md_customer_survey_request';
     /**
      * @var string
      */
-    protected $_cacheTag = 'customer_survey_form';
+    protected $_cacheTag = 'md_customer_survey_request';
     /**
      * @inheritDoc
      */
@@ -67,7 +67,7 @@ class CustomSurveyForm extends AbstractModel implements FormInterface
       */
     public function getQuestion1()
     {
-        return parent::getData(self::QUESTION1);
+        return parent::getData(self::Question1);
     }
 
     /**
@@ -75,47 +75,80 @@ class CustomSurveyForm extends AbstractModel implements FormInterface
      */
     public function setQuestion1($qn1)
     {
-        return $this->setData(self::QUESTION1, $qn1);
+        return $this->setData(self::Question1, $qn1);
+    }
+
+    public function getQuestion2()
+    {
+        return parent::getData(self::Question2);
     }
 
     /**
+     * @inheritDoc
+     */
+    public function setQuestion2($qn2)
+    {
+        return $this->setData(self::Question2, $qn2);
+    }
+     /**
       * @inheritDoc
       */
-      public function getQuestion2()
+
+    public function getQuestion3()
       {
-          return parent::getData(self::QUESTION2);
+          return parent::getData(self::Question3);
       }
   
       /**
        * @inheritDoc
        */
-      public function setQuestion2($qn2)
-      {
-          return $this->setData(self::QUESTION2, $qn2);
-      }
-
-    /**
-     * @inheritDoc
-     */
-    public function getQuestion3()
-    {
-        return parent::getData(self::QUESTION3);
-    }
-
-    /**
-     * @inheritDoc
-     */
     public function setQuestion3($qn3)
-    {
-        return $this->setData(self::QUESTION3, $qn3);
-    }
-
+      {
+          return $this->setData(self::Question3, $qn3);
+      }
+    public function getQuestion4()
+      {
+          return parent::getData(self::Question4);
+      }
+  
+      /**
+       * @inheritDoc
+       */
+    public function setQuestion4($qn4)
+      {
+          return $this->setData(self::Question4, $qn4);
+      }
+    public function getQuestion5()
+      {
+          return parent::getData(self::Question5);
+      }
+  
+      /**
+       * @inheritDoc
+       */
+    public function setQuestion5($qn5)
+      {
+          return $this->setData(self::Question5, $qn5);
+      }
+    public function getImage()
+      {
+          return parent::getData(self::Image);
+      }
+  
+      /**
+       * @inheritDoc
+       */
+    public function setImage($image)
+      {
+          return $this->setData(self::Image, $image);
+      }
+    
     /**
      * Construct function
      */
     protected function _construct()
     {
-        $this->_init(ResourceModel\CustomSurveyForm::class);
+        $this->_init(ResourceModel\CustomSurveyRequest::class);
     }
 
     /**

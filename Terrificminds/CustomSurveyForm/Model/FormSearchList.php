@@ -7,4 +7,5 @@ use Terrificminds\CustomSurveyForm\Api\Data\FormSearchResultInterface;
 
 class FormSearchResult extends SearchResults implements FormSearchResultInterface
 {
+    
 }
