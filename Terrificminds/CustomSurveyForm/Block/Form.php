@@ -7,6 +7,7 @@ use Magento\Customer\Model\Session;
 use Magento\Eav\Model\Config;
 use Magento\Customer\Model\Customer;
 use Magento\Backend\Block\Template\Context;
+use Magento\Framework\App\Response\RedirectInterface;
 
 class Form extends Template
 {
@@ -34,6 +35,8 @@ class Form extends Template
      * @var Magento\Customer\Model\Session
      */
     protected $_customerSession;
+
+    protected $redirect;
     /**
      * Construct function
      *
@@ -45,6 +48,7 @@ class Form extends Template
      * @param array $data
      */
     public function __construct(
+        \Magento\Framework\App\Response\RedirectInterface $redirect,
         Session $customer,
         Session $session,
         Config $eavConfig,
@@ -56,6 +60,7 @@ class Form extends Template
         $this->_customerSession = $session;
         $this->_eavConfig = $eavConfig;
         $this->getCustomerData = $getCustomerData;
+        $this->redirect = $redirect;
         parent::__construct($context, $data);
     }
     /**
@@ -90,4 +95,8 @@ class Form extends Template
         }
     }
 
+    public function getPath(){
+        $referer = $this->redirect->getRefererUrl();
+        return $referer;
+    }
 }

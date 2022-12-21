@@ -1,12 +1,16 @@
 <?php
-
     $user = $block->getCurrentUser();
     $log = $block->getuser();
+    $priorPath = $block->getPath();
 
+    if($priorPath == "https://app.exampleproject.test/checkout/onepage/success/"){
 ?>
 <head>
     <title>Terrificminds - Custom Survey Form</title>
 </head>
+
+
+
 <form action="Index/Save" method="POST" enctype="multipart/form-data">
     <fieldset class="fieldset">
         <legend class="legend"><span><?= $block->escapeHtmlAttr(__('Fill Detail')) ?></span></legend>
@@ -89,14 +93,12 @@
                         </select>
                     </div>
                 </div>
-
-
-                <label class="label" for="title">
+                    <label class="label" for="title">
                         <span><strong><?= $block->escapeHtmlAttr(__('Choose Image:')) ?><strong></span>
                     </label><br><br>
-                <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text" data-validate="{required:true}">
-                <?= $block->getChildHtml('form.additional.info');  ?>
-            </div>
+                    <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text" data-validate="{required:true}">
+                    <?= $block->getChildHtml('form.additional.info');  ?>
+                </div>
             
         </fieldset>
     </fieldset>
@@ -108,3 +110,9 @@
         </div>
     </div>
 </form>
+<?php
+    }
+    else{
+        echo "Sorry! You have no access to this page";
+    }
+?>
