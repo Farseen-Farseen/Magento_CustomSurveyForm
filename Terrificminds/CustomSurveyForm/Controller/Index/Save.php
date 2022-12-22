@@ -11,6 +11,8 @@ use Magento\Framework\Message\ManagerInterface;
 use Magento\Framework\Filesystem;
 use Magento\MediaStorage\Model\File\UploaderFactory;
 use Magento\Framework\App\Response\RedirectInterface;
+use Magento\Framework\HTTP\PhpEnvironment\Request;
+
 
 
 class Save extends Action
@@ -45,6 +47,10 @@ class Save extends Action
     protected $data;
     
     protected $mediaDirectory;
+    /**
+    * @var Request
+    */
+    protected $request;
 
     /**
      * Construct function
@@ -52,6 +58,7 @@ class Save extends Action
      * @param Context $context
      * @param FormRepositoryInterface $FormRepository
      * @param FormInterfaceFactory $FormFactory
+     * @param Request $request
      */
     public function __construct(
         \Magento\Framework\App\Response\RedirectInterface $redirect,
@@ -61,7 +68,8 @@ class Save extends Action
         ManagerInterface $messageManager,
         Filesystem $filesystem,
         UploaderFactory $fileUploader,
-        Data $data
+        Data $data,
+        Request $request
     ) {
         $this->messageManager       = $messageManager;
         $this->filesystem           = $filesystem;
@@ -69,6 +77,7 @@ class Save extends Action
         $this->redirect = $redirect;
         $this->data=$data;
 
+        $this->request = $request;
         $this->mediaDirectory = $filesystem->getDirectoryWrite(\Magento\Framework\App\Filesystem\DirectoryList::MEDIA);
 
         $this->FormRepository = $FormRepository;
@@ -94,7 +103,6 @@ class Save extends Action
         $setProduct->setQuestion4($params['qn4']);
         $setProduct->setQuestion5($params['qn5']);
         $setProduct->setImage($uploadedFile);
-        
 
         try {
             if($uploadedFile){
@@ -113,14 +121,11 @@ class Save extends Action
         return $resultRedirect->setUrl('https://app.exampleproject.test');
     }
 
- 
     public function uploadFile()
         {
             // this folder will be created inside "pub/media" folder
             $yourFolderName = 'uploads/';
 
-
- 
             // "upload_custom_file" is the HTML input file name
             $yourInputFileName = 'upload_custom_file';
  
@@ -131,7 +136,6 @@ class Save extends Action
             if ($file && $fileName) {
             $target = $this->mediaDirectory->getAbsolutePath($yourFolderName); 
 
- 
             /* @var $uploader \Magento\MediaStorage\Model\File\Uploader */
             $uploader = $this->fileUploader->create(['fileId' => $yourInputFileName]);
 
@@ -146,19 +150,17 @@ class Save extends Action
             // rename file name if already exists 
             $uploader->setAllowRenameFiles(true); 
 
-            $destFile = $target.'/'.$_FILES['upload_custom_file']['name'];
+            $files = $this->request->getFiles()->toArray();
+
+            $destFile = $target.'/'.$files['upload_custom_file']['name'];
 
             $filename = $uploader->getNewFileName($destFile);
-
- 
 
             // upload file in the specified folder
             $result = $uploader->save($target, $filename);
  
             //echo '<pre>'; print_r($result); exit;
             $path = $target . $filename;
-
-
 
             if ($result['file']) {
             $this->messageManager->addSuccess(__('File has been successfully uploaded.')); 
@@ -168,7 +170,6 @@ class Save extends Action
             } catch (\Exception $e) {
             $this->messageManager->addError($e->getMessage());
             }
-
              return false;
         }
 }
