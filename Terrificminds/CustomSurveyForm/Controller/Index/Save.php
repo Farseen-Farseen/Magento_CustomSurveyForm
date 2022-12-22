@@ -103,6 +103,8 @@ class Save extends Action
             }
             else{
             $this->messageManager->addErrorMessage(__("Data not saved"));
+            $resultRedirect = $this->resultRedirectFactory->create();
+            return $resultRedirect->setUrl($this->redirect->getRefererUrl());
             }
         } catch (\Exception $e) {
             $this->messageManager->addErrorMessage(__("Something went wrong"));
