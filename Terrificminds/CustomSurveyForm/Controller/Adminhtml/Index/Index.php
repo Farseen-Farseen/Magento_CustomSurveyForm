@@ -1,10 +1,4 @@
 <?php
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- *
- * Created By: MageDelight Pvt. Ltd.
- */
 namespace Terrificminds\CustomSurveyForm\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;

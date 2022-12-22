@@ -1,14 +1,5 @@
 <?php
-
-/**
- * Copyright © Magento, Inc. All rights reserved.
- * See COPYING.txt for license details.
- *
- * Created By : Rohan Hapani
- */
-
 namespace Terrificminds\CustomSurveyForm\Block\Adminhtml\Index\Edit\Button;
-
 use Magento\Backend\Block\Widget\Context;
 
 /**

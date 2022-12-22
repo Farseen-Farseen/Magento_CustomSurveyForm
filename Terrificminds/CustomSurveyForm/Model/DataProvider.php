@@ -1,6 +1,4 @@
 <?php
-
-
 namespace Terrificminds\CustomSurveyForm\Model;
 
 use Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm\CollectionFactory;

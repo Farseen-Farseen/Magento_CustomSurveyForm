@@ -43,6 +43,8 @@ class Save extends Action
     protected $redirect;
 
     protected $data;
+    
+    protected $mediaDirectory;
 
     /**
      * Construct function

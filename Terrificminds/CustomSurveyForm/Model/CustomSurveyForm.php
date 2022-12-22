@@ -1,5 +1,4 @@
 <?php
-
 namespace  Terrificminds\CustomSurveyForm\Model;
 
 use Magento\Framework\Model\AbstractModel;
