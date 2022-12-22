@@ -162,7 +162,7 @@ class Save extends Action
 
             if ($result['file']) {
             $this->messageManager->addSuccess(__('File has been successfully uploaded.')); 
-            return $path;
+            return $filename;
             }
             }
             } catch (\Exception $e) {
