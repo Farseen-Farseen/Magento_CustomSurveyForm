@@ -96,6 +96,7 @@
                     <label class="label" for="title">
                         <span><strong><?= $block->escapeHtmlAttr(__('Choose Image:')) ?><strong></span>
                     </label><br><br>
+                    <p>Allowed File extension:<?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('allowed_file_extension'); ?></p>
                     <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text required" data-validate="{required:true}">
                     <?= $block->getChildHtml('form.additional.info');  ?>
                 </div>
