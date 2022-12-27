@@ -2,7 +2,6 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="Terrificminds_CustomSurveyForm::customform" title="Custom Form"  module="Terrificminds_CustomSurveyForm" sortOrder="51" resource="Terrificminds_CustomSurveyForm::customform"/>
-        <add id="Terrificminds_CustomSurveyForm::surveyform" title="Survey Form"  module="Terrificminds_CustomSurveyForm" sortOrder="10" resource="Terrificminds_CustomSurveyForm::surveyform" parent="Terrificminds_CustomSurveyForm::customform"/>
-        <add id="Terrificminds_CustomSurveyForm::feedback"   title="Feedback Form" action="CustomSurveyForm/Index/Index" module="Terrificminds_CustomSurveyForm" sortOrder="20" resource="Terrificminds_CustomSurveyForm::feedback" parent="Terrificminds_CustomSurveyForm::surveyform"/>
+        <add id="Terrificminds_CustomSurveyForm::feedback"   title="Feedback Form" action="CustomSurveyForm/Index/Index" module="Terrificminds_CustomSurveyForm" sortOrder="20" resource="Terrificminds_CustomSurveyForm::feedback" parent="Terrificminds_CustomSurveyForm::customform"/>
     </menu>
 </config>
