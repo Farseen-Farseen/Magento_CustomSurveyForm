@@ -1,6 +1,6 @@
 <?php
 
-namespace Terrificminds\CustomSurveyForm\Ui\Component\Listing\Columns;
+namespace Terrificminds\CustomSurveyForm\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Framework\View\Element\UiComponentFactory;
