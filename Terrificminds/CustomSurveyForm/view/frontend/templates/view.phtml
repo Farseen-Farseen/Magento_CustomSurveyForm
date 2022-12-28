@@ -2,9 +2,6 @@
     declare(strict_types=1);
     $user = $block->getCurrentUser();
     $log = $block->getuser();
-    $priorPath = $block->getPath();
-
-    // if($priorPath == "https://app.exampleproject.test/checkout/onepage/success/"){
 ?>
 <head>
     <title>Terrificminds - Custom Survey Form</title>
@@ -97,8 +94,8 @@
                     </label><br><br>
                     <p>Allowed File extension:<?= $this->helper('Terrificminds\CustomSurveyForm\Helper\Data')->getConfigValue('allowed_file_extension'); ?></p>
                     <input type="file" name="upload_custom_file" id="upload_custom_file" title="Upload Custom File" class="input-text required" data-validate="{required:true}">
-                    <?= $block->getChildHtml('form.additional.info');  ?>
                 </div>
+                <?php $block->getChildHtml('form.additional.info');  ?>
             </div>
             
         </fieldset>
@@ -111,9 +108,3 @@
         </div>
     </div>
 </form>
-<?php
-    // }
-    // else{
-    //     echo "Sorry! You have no access to this page";
-    // }
-?>
