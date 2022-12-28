@@ -13,23 +13,10 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="custom_survey_form_data_source" xsi:type="string">CustomSurveyCollection</item>
-            </argument>
-        </arguments>
-        <arguments>
-            <argument name="collections" xsi:type="array">
                 <item name="customsurveyform_listing_data_source" xsi:type="string">SurveyFormCollection</item>
             </argument>
         </arguments>
     </type>
-     
-    <virtualType name="CustomSurveyCollection"
-                 type="Terrificminds\CustomSurveyForm\Ui\DataProvider\SurveyForm\Collection">
-        <arguments>
-            <argument name="mainTable" xsi:type="string">custom_survey_form_table</argument>
-            <argument name="resourceModel" xsi:type="string">Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm</argument>
-        </arguments>
-    </virtualType>
     
     <virtualType name="SurveyFormCollection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
