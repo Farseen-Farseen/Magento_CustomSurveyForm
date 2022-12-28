@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Block\Adminhtml\Index\Edit\Button;
 use Magento\Framework\View\Element\UiComponent\Control\ButtonProviderInterface;
 use Magento\Ui\Component\Control\Container;

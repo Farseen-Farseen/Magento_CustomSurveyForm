@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Model;
 
 use Magento\Framework\Api\SearchResults;

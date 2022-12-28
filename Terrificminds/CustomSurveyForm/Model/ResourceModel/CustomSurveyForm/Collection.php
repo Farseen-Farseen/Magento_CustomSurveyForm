@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Model\ResourceModel\CustomSurveyForm;
 
 use Terrificminds\CustomSurveyForm\Model\CustomSurveyForm;

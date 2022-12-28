@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;

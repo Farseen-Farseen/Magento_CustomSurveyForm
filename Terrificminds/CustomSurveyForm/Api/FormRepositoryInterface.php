@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Api;
 
 use Magento\Framework\Api\SearchCriteriaInterface;

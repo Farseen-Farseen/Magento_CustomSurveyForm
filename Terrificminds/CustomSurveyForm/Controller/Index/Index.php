@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Controller\Index;
 
 use Magento\Framework\App\Action\HttpGetActionInterface;

@@ -1,4 +1,5 @@
 <?php
+declare(strict_types=1);
 namespace Terrificminds\CustomSurveyForm\Controller\Adminhtml\Index;
 
 use Magento\Backend\App\Action;
